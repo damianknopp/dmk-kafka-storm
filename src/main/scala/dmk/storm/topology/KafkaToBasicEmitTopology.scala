@@ -51,24 +51,3 @@ object KafkaToBasicEmitTopology {
     new KafkaToBasicEmitTopology().init();
   }
 }
-
-
-/**
- * 
-
-SpoutConfig spoutConfig = new SpoutConfig(
-      ImmutableList.of("kafkahost1", "kafkahost2"), // List of Kafka brokers
-      8, // Number of partitions per host
-      "clicks", // Topic to read from
-      "/kafkastorm", // The root path in Zookeeper for the spout to store the consumer offsets
-      "discovery"); // An id for this consumer for storing the consumer offsets in Zookeeper
-
-KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig
-* 
- * SpoutConfig spoutConfig = new SpoutConfig(KafkaConfig.StaticHosts.fromHostString(hosts, partitions), topic, offsetPath, consumerId)
- * spoutConfig.bufferSizeBytes = 1024 * 1024 * 4
- * spoutConfig.fetchSizeBytes = 1024 * 1024 * 4
- * spoutConfig.forceFromStart = true
- * KafkaSpout kSpout = new KafkaSpout(spoutConfig)
- */
-
