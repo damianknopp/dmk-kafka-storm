@@ -14,23 +14,20 @@ To use:
 Console 0 - start Kafka docker image
 ---
 Start Kafka docker image.  The spotify one has a test topic already created
-'''bash
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip default-small` --env ADVERTISED_PORT=9092 spotify/kafka
-'''
+
+	docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip default-small` --env ADVERTISED_PORT=9092 spotify/kafka
 
 Console 1 - Produce messages 
 ---
 Produce some messages using the Kafka command line tool
-'''bash
-./bin/kafka-console-producer.sh --broker-list 192.168.99.100:9092 --topic test
-'''
+
+	./bin/kafka-console-producer.sh --broker-list 192.168.99.100:9092 --topic test
 
 Console 2 - Read messages
 ---
 Read messages using the Kafka command line tool
-'''bash
-./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic test --from-beginning
-'''
+
+	./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic test --from-beginning
 
 From Eclipse
 ---
