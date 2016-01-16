@@ -8,6 +8,7 @@ To use:
 * Install Docker
 * If MACOS, install docker-machine
 * If MACOS, start docker machine and call it default-small
+
 	docker-machine create --driver=virtualbox --virtualbox-cpu-count 1 --virtualbox-memory "512" default-small
 
 Console 0 - start Kafka docker image
