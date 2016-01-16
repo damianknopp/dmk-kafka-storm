@@ -9,10 +9,13 @@ To use:
 * If MACOS, install docker-machine
 * If MACOS, start docker machine and call it default-small
 
+'''
 	docker-machine create --driver=virtualbox --virtualbox-cpu-count 1 --virtualbox-memory "512" default-small
 	docker-machine ls
 	docker-machine start default-small
 	eval "$(docker-machine env default-small)"
+	eval "$(docker-machine env default)"
+'''
 
 
 Console 0 - start Kafka docker image
