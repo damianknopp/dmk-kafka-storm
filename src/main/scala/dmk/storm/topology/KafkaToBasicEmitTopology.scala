@@ -27,7 +27,7 @@ class KafkaToBasicEmitTopology {
       host1,
       "test", // Topic to read from
       "/brokers", // The root path in Zookeeper for the spout to store the consumer offsets
-      "kafkastormtest"); // An id for this consumer for storing the consumer offsets in Zookeeper
+      "kafkastormtest") // An id for this consumer for storing the consumer offsets in Zookeeper
     spoutConfig.scheme = new SchemeAsMultiScheme(new StringScheme())
     builder.setSpout(inputSpoutName, new KafkaSpout(spoutConfig), 1) //pass in number equal to partitions of the kafka topic
     builder.setBolt("KafkaBasicEmitBolt", new KafkaBasicEmitBolt(), 2).shuffleGrouping(inputSpoutName)

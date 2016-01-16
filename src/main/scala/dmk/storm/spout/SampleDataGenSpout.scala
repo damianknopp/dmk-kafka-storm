@@ -32,9 +32,16 @@ class SampleDataGenSpout extends BaseRichSpout {
 
 object SampleDataGenSpout {
   val serialVersionUID = 1L
-  private val map = new HashMap[Integer, Array[String]]()
-  map.put(0, Array("message0 tuple0", "message0 tuple1"))
-  map.put(1, Array("message1 tuple0", "message1 tuple1"))
-  map.put(2, Array("message2 tuple0", "message2 tuple1"))
-  map.put(3, Array("message3 tuple0", "message3 tuple1"))
+  private val map = new HashMap[Integer, String]()
+
+//  private val map = new HashMap[Integer, Array[String]]()
+//  map.put(0, Array("message0 tuple0", "message0 tuple1"))
+//  map.put(1, Array("message1 tuple0", "message1 tuple1"))
+//  map.put(2, Array("message2 tuple0", "message2 tuple1"))
+//  map.put(3, Array("message3 tuple0", "message3 tuple1"))
+  map.put(0, "message0 tuple0")
+  map.put(1, "message1 tuple0")
+  map.put(2, "message2 tuple0")
+  map.put(3, "message3 tuple0")
+
 }
