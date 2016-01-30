@@ -46,8 +46,8 @@ From Eclipse
  Run SampleDataToKafkaTopology.scala, 
  List new topics created
 
- 	~/kafka/bin/kafka-topics.sh --list --zookeeper 192.168.99.100:2181
+     ~/kafka/bin/kafka-topics.sh --list --zookeeper 192.168.99.100:2181
  
  Pick a topic and see the key and messge written
 
- 	~/kafka/./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic topic_04 --from-beginning --property print.key=true --property key.separator="->"
+    ~/kafka/./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic topic_04 --from-beginning --property print.key=true --property key.separator="->"
