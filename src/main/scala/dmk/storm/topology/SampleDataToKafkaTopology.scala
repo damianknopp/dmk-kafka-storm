@@ -21,6 +21,7 @@ class SampleDataToKafkaTopology {
     val kafkaWriterBolt = new KafkaBolt()
           .withTopicSelector(new RoundRobinKafkaTopicSelector())
           .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper[String, String]())
+    // set task number to same as kafka partitions
     builder.setBolt("KafkaWriterBolt", kafkaWriterBolt, 2)
             .shuffleGrouping(dataGenSpoutName)
 
@@ -42,8 +43,12 @@ class SampleDataToKafkaTopology {
    val props = new Properties()
    val hosts = "192.168.99.100:9092"
    props.put("metadata.broker.list", hosts)
+   // number of replication writes
    props.put("request.required.acks", "0")
-   props.put("serializer.class", "kafka.serializer.StringEncoder")
+   //props.put("serializer.class", "kafka.serializer.StringEncoder")
+   props.put("serializer.class", "dmk.storm.encoder.AvroEncoder")
+   props.put("key.serializer.class", "dmk.storm.encoder.AvroEncoder")
+   props.put("compression.codec", "gzip")
    props
   }
   

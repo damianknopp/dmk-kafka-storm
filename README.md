@@ -17,9 +17,6 @@ To use:
 
 	eval "$(docker-machine env default-small)"
 
-	eval "$(docker-machine env default)"
-
-
 
 Console 0 - start Kafka docker image
 ---
@@ -32,14 +29,25 @@ Console 1 - Produce messages
 ---
 Produce some messages using the Kafka command line tool
 
-	./bin/kafka-console-producer.sh --broker-list 192.168.99.100:9092 --topic test
+	~/kafka/bin/kafka-console-producer.sh --broker-list 192.168.99.100:9092 --topic test
 
 Console 2 - Read messages
 ---
 Read messages using the Kafka command line tool
 
-	./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic test --from-beginning
+	~/kafka/bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic test --from-beginning
 
 From Eclipse
 ---
- Run KafkaToBasicEmitTopology.scala, see messages from console producer
+ Run SampleDataToBasicEmitTopology.scala, see sample messages generated in storm, send to a bolt and print to the console, plus emited to nowhere
+
+ Run KafkaToBasicEmitTopology.scala, see messages from console producer against topic named test
+
+ Run SampleDataToKafkaTopology.scala, 
+ List new topics created
+
+ ~/kafka/bin/kafka-topics.sh --list --zookeeper 192.168.99.100:2181
+ 
+ Pick a topic and see the key and messge written
+
+ ~/kafka/./bin/kafka-console-consumer.sh --zookeeper 192.168.99.100:2181 --topic topic_04 --from-beginning --property print.key=true --property key.separator="->"

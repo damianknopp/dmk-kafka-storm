@@ -9,6 +9,7 @@ import dmk.storm.bolt.BasicEmitBolt
 class SampleDataToBasicEmitTopology {
   
   def init(): Unit = {
+    
     val builder: TopologyBuilder = new TopologyBuilder()
     val dataGenSpoutName = "SampleDataGenSpout"
     builder.setSpout(dataGenSpoutName, new SampleDataGenSpout(), 4)

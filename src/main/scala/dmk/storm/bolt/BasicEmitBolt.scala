@@ -14,13 +14,15 @@ class BasicEmitBolt extends BaseBasicBolt {
   override def execute(input: Tuple, collector: BasicOutputCollector): Unit = {
     val fields: Fields = input.getFields
     val key = input.getValueByField("key")
-    val message = input.getValueByField("message").asInstanceOf[Array[String]]
+    //val message = input.getValueByField("message").asInstanceOf[Array[String]]
+    val message = input.getValueByField("message").asInstanceOf[String]
     println("sourceTaskId: " + input.getSourceTask)
     println("messageId: " + input.getMessageId)
     println("fields: " + fields.toList())
     println("key:" + key.toString)
-    println("messages size: " + message.size.toString)
-    message.foreach { x => println(x) }
+    println("message: " + message)
+    //println("messages size: " + message.size.toString)
+    // message.foreach { x => println(x) }
     
     // acks are handled for us by BaseBasicBolt
     

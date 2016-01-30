@@ -10,6 +10,7 @@ class RoundRobinKafkaTopicSelector(maxTopics: Int = 4, topicPrefix: String = "to
 
   def getTopic(tuple: Tuple): String = {
     curIndex = cycleNext
+    // topic is created in kafka if it does not already exist
     String.format("%s_%02d", topicPrefix, curIndex.asInstanceOf[Integer])
   }
 
